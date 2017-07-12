@@ -105,6 +105,7 @@ let blogItem = {
                     return post_id !== this.post._id
                 })
             }
+            
 
             UsersService.update(this.user).then((res) => {
                 //return UsersService.setToken(res.data.token)
