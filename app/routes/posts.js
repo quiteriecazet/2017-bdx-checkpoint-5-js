@@ -11,11 +11,17 @@ module.exports = (app) => {
 
     //GET (for READ)  method
     app.get('/posts', (req, res, next) => {
+        req.query = {
+            isPublished: true
+        }
         return ctrl.find(req, res, next)
     })
 
     //GET (for READ) method with request params id
     app.get('/posts/:id', (req, res, next) => {
+        req.query = {
+            isPublished: true
+        }
         return ctrl.findById(req, res, next)
     })
 
