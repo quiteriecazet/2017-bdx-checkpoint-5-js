@@ -88,24 +88,27 @@ let blogItem = {
         }
 
         this.isFav = () => {
-            if (!this.post) return
-            return (this.user.bookmarks.find((post_id) => post_id.id === this.post._id))
+            if (!this.post) {
+                this.user.bookmarks.find((post_id) => post_id.id === this.post._id)
+            }
         }
 
         this.addOrRemoveToBookmark = () => {
-            // Try to find post in bookmarks
-            let postFound = this.user.bookmarks.find((post) => post.id === this.post._id)
+            console.log(this.user)
 
+            // Try to find post in bookmarks
+            let postFound = this.user.bookmarks.find((post) => post.id === this.post._id, console.log(this.post._id))
+           
+            /* I add this post to my bookmarks */
             if (!postFound) {
                 //Not found
                 this.user.bookmarks.push(this.post._id)
             } else {
-                //Found
-                this.user.bookmark = this.user.bookmarks.filtered((post_id) => {
+                /* I remove this post from my bookmarks */
+                this.user.bookmark = this.user.bookmarks.splice((post_id) => {
                     return post_id !== this.post._id
                 })
             }
-            
 
             UsersService.update(this.user).then((res) => {
                 //return UsersService.setToken(res.data.token)
