@@ -17,7 +17,7 @@ let navbar = {
 
                 });
             },
-            
+
             disconnect() {
                 UsersService.disconnect().then(() => {
                     Materialize.toast('Disconnected', 4000, 'toast-warning')
@@ -25,6 +25,7 @@ let navbar = {
                     $state.reload()
                 })
             }
+
 
         })
     }]
