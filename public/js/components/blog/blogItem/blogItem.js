@@ -9,7 +9,7 @@ let blogItem = {
         editable: "<"
     },
     templateUrl: 'js/components/blog/blogItem/blogItem.html',
-    controller: ['UsersService', 'PostsService', '$stateParams', '$state', function(UsersService, PostsService, $stateParams, $state) {
+    controller: ['UsersService', 'PostsService', '$stateParams', '$state', function (UsersService, PostsService, $stateParams, $state, ) {
         'use  strict'
         let initialPost;
 
@@ -20,6 +20,12 @@ let blogItem = {
         }).catch((err) => {
             console.log(err)
         })
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year
+            format: 'dd-mm-yyyy'
+        });
 
         // Test if $stateParams.id exists (ex: stateParams.id is 1234567 form this url http://domain.ext/1234567)
         if ($stateParams.id) {
@@ -57,6 +63,7 @@ let blogItem = {
         // Create save function.
         // If you want to use in view you can call with $ctrl.save()
         this.save = () => {
+            console.log(this.post)
             // Call save method form PostsService with post
             PostsService.save(this.post).then((res) => {
                 // Change editMode value to false

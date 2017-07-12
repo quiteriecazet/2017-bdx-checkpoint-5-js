@@ -27,8 +27,10 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-cookies": "^1.6.3",
+    "angular-material": "^1.1.4",
     "angular-materialize": "^0.2.2",
     "angular-ui-router": "^0.4.2",
+    "angularjs-datepicker": "^2.1.23",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "express": "~4.14.1",
